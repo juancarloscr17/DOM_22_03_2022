@@ -1,16 +1,48 @@
 
+let enviar = async function (url) {
+    let peticion = await fetch(url);
+    let json = await peticion.json();
+    let seleccion = document.querySelector("body > table > tbody");
 
-let h1 = document.createElement("H1");
-let texto = document.createTextNode("Juan Carlos Coronel")
-h1.id = "myId";
-h1.classList = "colorH1";
+    let tr = document.createElement("TR");
 
-// h1.append(texto);//javaScript
-// h1.innerText= texto.nodeValue; //javaScript 2
-h1.insertAdjacentText("beforeend", texto.nodeValue);
+    let tdId = document.createElement("TD");
+    tdId.insertAdjacentText("beforeend",json.id);
 
-// document.body.append(h1);////javaScript
-// document.body.innerHTML = h1.outerHTML;////javaScript 2
-document.body.insertAdjacentElement("afterbegin",h1);
-console.log(h1);
-console.dir(h1);
+    let tdName = document.createElement("TD");
+    tdName.insertAdjacentText("beforeend",json.name);
+
+    let tdImg = document.createElement("TD");
+    tdImg.classList = "foto"; 
+    let Img1 = document.createElement("IMG");
+    Img1.classList = "imagen1";
+    let Img2 = document.createElement("IMG");
+    Img2.classList = "imagen2";
+    Img1.src= json.sprites.front_default; 
+    Img2.src= json.sprites.back_default;
+    tdImg.insertAdjacentElement("beforeend",Img1);
+    tdImg.insertAdjacentElement("beforeend",Img2);
+   
+
+
+tr.insertAdjacentElement("beforeend", tdId);
+tr.insertAdjacentElement("beforeend", tdName);
+
+
+// puntos de ataque
+ataque:
+for(let value of json.stats){
+    if(value.stat.name == "attack"){
+        let tdAta = document.createElement("TD");
+        tdAta.insertAdjacentText("beforeend", value.base_stat);
+        tr.insertAdjacentElement("beforeend", tdAta);
+        break ataque;
+    }
+}
+tr.insertAdjacentElement("beforeend", tdImg);
+seleccion.insertAdjacentElement("beforeend", tr);
+} 
+
+for (let i = 1; i <= 200; i++) {
+enviar(`https://pokeapi.co/api/v2/pokemon/${i}`);
+}

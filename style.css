@@ -1,3 +1,22 @@
-.colorH1{
-    color: blue;
+td, th{
+    border: 1px solid red;
+}
+caption{
+    font-size: 2em;
+}
+th{
+    font-size: 1.5em;
+}
+table{
+    width: 100%;
+    text-align: center;
+}
+.foto{
+    width: 500px;
+}
+.imagen1{
+    margin-right: 3em;
+}
+.imagen2{
+    margin-left: 3em;
 }
