@@ -1,22 +1,20 @@
-td, th{
-    border: 1px solid red;
+:root{
+    --color1: green;
+    --color2: #fff;
 }
-caption{
-    font-size: 2em;
+ul li {
+    list-style: none;
+    color: var(--color2);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    padding: 15px;
+    background: var(--color1);
+    display: inline-block;
+    border-radius: 15px;
+    margin: 10px;
 }
-th{
-    font-size: 1.5em;
-}
-table{
-    width: 100%;
-    text-align: center;
-}
-.foto{
-    width: 500px;
-}
-.imagen1{
-    margin-right: 3em;
-}
-.imagen2{
-    margin-left: 3em;
+ul li:hover{
+    opacity: .8;
+    cursor: pointer;
 }
