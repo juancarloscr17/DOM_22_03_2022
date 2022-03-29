@@ -25,7 +25,10 @@ divCaja2.classList.add('Mystyle');
 //     background: "#2be286"
 // }
 let divCaja3 = document.createElement("DIV");
-divCaja3.insertAdjacentText("beforeend", "Circulo 3");
+divCaja3.insertAdjacentText("beforeend", "Caja 3");
 // Object.assign(divCaja3.style, Mystyle3);
 
 div.insertAdjacentElement("beforeend", divCaja3);
+
+let divCajas = `<div>Caja 4</div><div>Caja 5</div>`;
+div.insertAdjacentHTML("beforeend",divCajas);
